@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
-  <title>Impostor Party</title>
+  <title>imposter Party</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -13,7 +13,7 @@
     <!-- HEADER -->
     <header class="header">
       <div class="logo">🎉</div>
-      <div class="title">Impostor Party</div>
+      <div class="title">imposter Party</div>
       <div class="subtitle">Pass the phone • Reveal your role • Have fun!</div>
     </header>
 
@@ -29,13 +29,13 @@
 
       <div id="playerPreview" class="player-preview"></div>
 
-      <label class="label">Impostors</label>
-      <input id="impostorCount" type="number" min="1" value="1" class="input" />
+      <label class="label">imposters</label>
+      <input id="imposterCount" type="number" min="1" value="1" class="input" />
 
       <label class="label">Words (comma or newline separated)</label>
       <textarea id="wordList" class="input big" placeholder="apple, chair, bottle...">apple, castle, astronaut, coffee, concert</textarea>
 
-      <label class="label">Fake word shown to impostor</label>
+      <label class="label">Fake word shown to imposter</label>
       <input id="fakeWord" class="input" type="text" value="????" />
 
       <label class="label">Timer (seconds)</label>
@@ -82,14 +82,14 @@
 
       <div class="row">
         <button id="stopTimerBtn" class="btn warn">Stop Timer</button>
-        <button id="showImpostorsBtn" class="btn primary hidden">Reveal Impostors</button>
+        <button id="showimpostersBtn" class="btn primary hidden">Reveal imposters</button>
       </div>
     </section>
 
     <!-- FINAL REVEAL SCREEN -->
     <section id="finalScreen" class="screen card hidden">
-      <h2 class="section-title">Impostors</h2>
-      <div id="impostorList" class="impostor-list"></div>
+      <h2 class="section-title">imposters</h2>
+      <div id="imposterList" class="imposter-list"></div>
 
       <div class="row">
         <button id="playAgainBtn" class="btn primary">Play Again (Same Settings)</button>
