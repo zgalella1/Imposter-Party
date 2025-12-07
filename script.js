@@ -1,5 +1,5 @@
 /* ===========================
-   Impostor Party - script.js
+   imposter Party - script.js
    =========================== */
 
 /* State */
@@ -17,7 +17,7 @@ const timerScreen = () => document.getElementById("timerScreen");
 const finalScreen = () => document.getElementById("finalScreen");
 
 const playerCountInput = () => document.getElementById("playerCount");
-const impostorCountInput = () => document.getElementById("impostorCount");
+const imposterCountInput = () => document.getElementById("imposterCount");
 const wordListInput = () => document.getElementById("wordList");
 const fakeWordInput = () => document.getElementById("fakeWord");
 const timerLengthInput = () => document.getElementById("timerLength");
@@ -33,9 +33,9 @@ const nextBtn = () => document.getElementById("nextBtn");
 
 const timerDisplay = () => document.getElementById("timerDisplay");
 const stopTimerBtn = () => document.getElementById("stopTimerBtn");
-const showImpostorsBtn = () => document.getElementById("showImpostorsBtn");
+const showimpostersBtn = () => document.getElementById("showimpostersBtn");
 
-const impostorList = () => document.getElementById("impostorList");
+const imposterList = () => document.getElementById("imposterList");
 const confettiLayer = () => document.getElementById("confettiLayer");
 
 /* Init on DOM ready */
@@ -64,7 +64,7 @@ function bindSetupButtons() {
 
   // timer screen
   stopTimerBtn().addEventListener("click", stopTimerEarly);
-  showImpostorsBtn().addEventListener("click", showImpostors);
+  showimpostersBtn().addEventListener("click", showimposters);
 
   // final screen controls
   document.getElementById("playAgainBtn").addEventListener("click", playAgain);
@@ -149,7 +149,7 @@ function onPlayerCountChanged(){
 function clearAll(){
   playerNames = [];
   playerCountInput().value = 5;
-  impostorCountInput().value = 1;
+  imposterCountInput().value = 1;
   wordListInput().value = "apple, castle, astronaut, coffee, concert";
   timerLengthInput().value = 60;
   fakeWordInput().value = "????";
@@ -162,7 +162,7 @@ function clearAll(){
 function startGame(){
   // pull current settings (do not destroy them)
   const playerCount = Math.max(3, parseInt(playerCountInput().value || 3));
-  const impostorCount = Math.max(1, parseInt(impostorCountInput().value || 1));
+  const imposterCount = Math.max(1, parseInt(imposterCountInput().value || 1));
   const rawWords = wordListInput().value || "";
   const fakeWord = (fakeWordInput().value || "????");
   const words = rawWords.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);
@@ -172,20 +172,20 @@ function startGame(){
   while (playerNames.length < playerCount) playerNames.push(`Player ${playerNames.length+1}`);
   playerNames = playerNames.slice(0, playerCount);
 
-  // pick impostors
-  const impostorIndexes = new Set();
-  while (impostorIndexes.size < Math.min(impostorCount, playerCount)) {
-    impostorIndexes.add(Math.floor(Math.random()*playerCount));
+  // pick imposters
+  const imposterIndexes = new Set();
+  while (imposterIndexes.size < Math.min(imposterCount, playerCount)) {
+    imposterIndexes.add(Math.floor(Math.random()*playerCount));
   }
 
   // build roles
   roles = [];
   for (let i=0;i<playerCount;i++){
-    const isImpostor = impostorIndexes.has(i);
+    const isimposter = imposterIndexes.has(i);
     roles.push({
       name: playerNames[i] || `Player ${i+1}`,
-      isImpostor,
-      word: isImpostor ? fakeWord : chosenWord
+      isimposter,
+      word: isimposter ? fakeWord : chosenWord
     });
   }
 
@@ -222,7 +222,7 @@ function toggleReveal(){
     rt.classList.remove("hidden");
     rh.classList.add("hidden");
     revealBtn().innerText = "Hide My Word";
-    // subtle confetti for non-impostor? optional - reserved for final reveal
+    // subtle confetti for non-imposter? optional - reserved for final reveal
   } else {
     rt.classList.add("hidden");
     rh.classList.remove("hidden");
@@ -256,7 +256,7 @@ function hideRoleText(){
    ---------------------- */
 function startTimerScreen(){
   timerScreen().classList.remove("hidden");
-  showImpostorsBtn().classList.add("hidden");
+  showimpostersBtn().classList.add("hidden");
   timerDisplay().innerText = countdown;
   // clear any previous timer
   if (timer) { clearInterval(timer); timer = null; }
@@ -268,7 +268,7 @@ function startTimerScreen(){
     if (t <= 0){
       clearInterval(timer);
       timer = null;
-      showImpostorsBtn().classList.remove("hidden");
+      showimpostersBtn().classList.remove("hidden");
     }
   }, 1000);
 }
@@ -277,34 +277,34 @@ function startTimerScreen(){
 function stopTimerEarly(){
   if (timer){ clearInterval(timer); timer = null; }
   timerDisplay().innerText = "0";
-  showImpostorsBtn().classList.remove("hidden");
+  showimpostersBtn().classList.remove("hidden");
 }
 
 /* ----------------------
    Final reveal
    ---------------------- */
-function showImpostors(){
+function showimposters(){
   timerScreen().classList.add("hidden");
   finalScreen().classList.remove("hidden");
 
   // clear list and populate
-  const list = impostorList();
+  const list = imposterList();
   list.innerHTML = "";
   let found = false;
   roles.forEach(r=>{
-    if (r.isImpostor){
+    if (r.isimposter){
       const tag = document.createElement("div");
-      tag.className = "impostor-tag";
+      tag.className = "imposter-tag";
       tag.innerText = r.name;
       list.appendChild(tag);
       found = true;
     }
   });
 
-  // if no impostor found (shouldn't happen), show message
+  // if no imposter found (shouldn't happen), show message
   if (!found){
     const p = document.createElement("p");
-    p.innerText = "No impostors detected!";
+    p.innerText = "No imposters detected!";
     list.appendChild(p);
   }
 
@@ -318,7 +318,7 @@ function showImpostors(){
 function playAgain(){
   // keep all settings as-is, reshuffle roles & pick new word
   finalScreen().classList.add("hidden");
-  // pick new word & impostors using current settings
+  // pick new word & imposters using current settings
   startGame();
 }
 
