@@ -76,7 +76,7 @@ function bindSetupButtons() {
    ---------------------- */
 function openPlayerList() {
   // ensure playerNames array matches count
-  const count = Math.max(3, parseInt(playerCountInput().value || 3));
+  const count = Math.max(0, parseInt(playerCountInput().value || 0));
   while (playerNames.length < count) playerNames.push(`Player ${playerNames.length+1}`);
   playerNames = playerNames.slice(0, count);
 
