@@ -1,0 +1,199 @@
+/* -------------------------
+   Party-Game Playful Theme
+   Optimized for iPhone Safari
+   ------------------------- */
+
+:root{
+  --bg:#FFF7FC;
+  --card:#fff;
+  --muted:#666;
+  --accent1:#FF4F70; /* pink-red */
+  --accent2:#4F9DFF; /* blue */
+  --accent3:#FFC94F; /* yellow */
+  --accent4:#7AF7C9; /* mint */
+  --danger:#FF6B6B;
+  --surface-shadow: rgba(40,40,60,0.10);
+  --glass: rgba(255,255,255,0.7);
+  --radius:20px;
+  --gap:14px;
+  --maxw:500px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: "Poppins", system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#FFF7FC,#F0F6FF);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -webkit-text-size-adjust:100%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:28px 16px;
+}
+
+/* App container */
+.app{
+  width:100%;
+  max-width:var(--maxw);
+}
+
+/* Header */
+.header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom:14px;
+  text-align:center;
+}
+.logo{
+  width:72px;height:72px;border-radius:18px;
+  background:linear-gradient(135deg,var(--accent2),var(--accent1));
+  display:flex;align-items:center;justify-content:center;
+  font-size:34px;color:white;margin-bottom:8px;
+  box-shadow:0 8px 26px rgba(79,157,255,0.18);
+}
+.title{font-size:22px;font-weight:700}
+.subtitle{font-size:13px;color:var(--muted)}
+
+/* Card / Screen */
+.screen{margin-bottom:16px}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:0 10px 30px var(--surface-shadow);
+  border: 1px solid rgba(0,0,0,0.03);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.card:active{transform:translateY(2px)}
+
+/* Titles */
+.section-title{margin:0 0 8px 0;font-size:20px}
+
+/* Layout helpers */
+.row{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+
+/* Inputs */
+.input{
+  width:100%;
+  padding:12px 14px;
+  border-radius:14px;
+  border:none;
+  box-shadow: inset 0 2px 6px rgba(16,16,30,0.03);
+  font-size:16px;
+  background: linear-gradient(180deg,#fff,#fcfcff);
+}
+.input.small{width:120px}
+.input.big{height:110px;padding:14px;font-size:15px;resize:vertical}
+
+/* Buttons */
+.btn{
+  padding:14px 16px;
+  border-radius:14px;
+  border:none;
+  font-weight:700;
+  font-size:16px;
+  min-width:120px;
+  cursor:pointer;
+  box-shadow:0 8px 18px rgba(16,16,40,0.06);
+}
+.btn.primary{
+  color:white;
+  background: linear-gradient(135deg,var(--accent1),#ff7a9c);
+  box-shadow:0 12px 30px rgba(255,79,112,0.16);
+}
+.btn.ghost{
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+  color:#333;
+  border:1px solid rgba(0,0,0,0.06);
+}
+.btn.warn{
+  background: linear-gradient(135deg,#FFCF6B,#FF9E4B);
+  color:white;
+}
+.btn:active{transform:scale(0.98)}
+
+/* Player preview */
+.player-preview{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:8px;
+}
+.pill{
+  background: linear-gradient(180deg,#fff,#fcfcff);
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(0,0,0,0.04);
+  font-weight:600;
+  color:#333;
+  box-shadow:0 6px 16px rgba(16,16,40,0.04);
+}
+
+/* Player list editor */
+.player-list{display:flex;flex-direction:column;gap:10px}
+.player-row{display:flex;gap:8px;align-items:center}
+.player-row input{flex:1;padding:12px;border-radius:12px;border:none;background:#fff}
+.player-row button{padding:10px 12px;border-radius:10px}
+
+/* Role card */
+.role-card{
+  margin-top:8px;
+  background: linear-gradient(135deg,#fff,#fff8fb);
+  border-radius:16px;
+  padding:22px;
+  min-height:120px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  box-shadow: 0 12px 30px rgba(16,16,40,0.04);
+}
+.role-hidden{color:var(--muted);font-weight:600}
+.role-text{font-size:36px;font-weight:800;letter-spacing:1px;color:var(--accent2)}
+.role-text.hidden{display:none}
+
+/* Timer */
+.circle-timer{
+  width:200px;height:200px;border-radius:999px;
+  margin:12px auto;
+  display:flex;align-items:center;justify-content:center;
+  background: radial-gradient(circle at 30% 20%, rgba(79,157,255,0.12), transparent 30%),
+              linear-gradient(180deg,#fff,#fff7f8);
+  box-shadow:0 10px 30px rgba(16,16,40,0.06);
+}
+.timer-number{font-size:48px;font-weight:900;color:#111}
+
+/* Final screen: impostor tags */
+.impostor-list{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.impostor-tag{
+  padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,#ffd4d4,#ffb3b3);
+  color:#8b1d1d;font-weight:800;box-shadow:0 8px 22px rgba(255,99,99,0.12)
+}
+
+/* Confetti */
+.confetti-layer{
+  position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden;z-index:9999;
+}
+.pointer-none{pointer-events:none}
+
+/* Hidden helper */
+.hidden{display:none !important}
+
+/* responsive tweaks */
+@media (max-width:420px){
+  .circle-timer{width:170px;height:170px}
+  .timer-number{font-size:40px}
+  .role-text{font-size:30px}
+  .title{font-size:20px}
+}
