@@ -174,9 +174,9 @@ body{
 }
 .timer-number{font-size:48px;font-weight:900;color:#111}
 
-/* Final screen: impostor tags */
-.impostor-list{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
-.impostor-tag{
+/* Final screen: imposter tags */
+.imposter-list{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+.imposter-tag{
   padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,#ffd4d4,#ffb3b3);
   color:#8b1d1d;font-weight:800;box-shadow:0 8px 22px rgba(255,99,99,0.12)
 }
