@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+  <title>Impostor Party</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="logo">🎉</div>
+      <div class="title">Impostor Party</div>
+      <div class="subtitle">Pass the phone • Reveal your role • Have fun!</div>
+    </header>
+
+    <!-- SETUP SCREEN -->
+    <section id="setupScreen" class="screen card">
+      <h2 class="section-title">Setup</h2>
+
+      <label class="label">Players</label>
+      <div class="row">
+        <input id="playerCount" type="number" min="3" value="5" class="input small" />
+        <button id="editPlayersBtn" class="btn ghost">Edit Names</button>
+      </div>
+
+      <div id="playerPreview" class="player-preview"></div>
+
+      <label class="label">Impostors</label>
+      <input id="impostorCount" type="number" min="1" value="1" class="input" />
+
+      <label class="label">Words (comma or newline separated)</label>
+      <textarea id="wordList" class="input big" placeholder="apple, chair, bottle...">apple, castle, astronaut, coffee, concert</textarea>
+
+      <label class="label">Fake word shown to impostor</label>
+      <input id="fakeWord" class="input" type="text" value="????" />
+
+      <label class="label">Timer (seconds)</label>
+      <input id="timerLength" class="input" type="number" min="10" max="600" value="60" />
+
+      <div class="row">
+        <button id="startBtn" class="btn primary">Start Game</button>
+        <button id="newGameClearBtn" class="btn ghost">Clear All</button>
+      </div>
+    </section>
+
+    <!-- PLAYER LIST EDITOR -->
+    <section id="playerListScreen" class="screen card hidden">
+      <h2 class="section-title">Player Names</h2>
+      <div id="playerList" class="player-list"></div>
+
+      <div class="row">
+        <button id="addPlayerBtn" class="btn">Add Player</button>
+        <button id="donePlayersBtn" class="btn ghost">Done</button>
+      </div>
+    </section>
+
+    <!-- REVEAL SCREEN -->
+    <section id="revealScreen" class="screen card hidden">
+      <h2 id="playerHeader" class="section-title">Player</h2>
+
+      <div id="roleCard" class="role-card">
+        <div id="roleHidden" class="role-hidden">Tap the button to reveal</div>
+        <div id="roleText" class="role-text hidden">WORD</div>
+      </div>
+
+      <div class="row">
+        <button id="revealBtn" class="btn primary">Show My Word</button>
+        <button id="nextBtn" class="btn ghost">Next</button>
+      </div>
+    </section>
+
+    <!-- TIMER SCREEN -->
+    <section id="timerScreen" class="screen card hidden">
+      <h2 class="section-title">Discussion</h2>
+      <div id="circularTimer" class="circle-timer">
+        <div id="timerDisplay" class="timer-number">60</div>
+      </div>
+
+      <div class="row">
+        <button id="stopTimerBtn" class="btn warn">Stop Timer</button>
+        <button id="showImpostorsBtn" class="btn primary hidden">Reveal Impostors</button>
+      </div>
+    </section>
+
+    <!-- FINAL REVEAL SCREEN -->
+    <section id="finalScreen" class="screen card hidden">
+      <h2 class="section-title">Impostors</h2>
+      <div id="impostorList" class="impostor-list"></div>
+
+      <div class="row">
+        <button id="playAgainBtn" class="btn primary">Play Again (Same Settings)</button>
+        <button id="resetBtn" class="btn ghost">New Game (Reset)</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Confetti layer -->
+  <div id="confettiLayer" class="confetti-layer pointer-none"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
