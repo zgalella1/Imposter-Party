@@ -152,7 +152,7 @@ function clearAll(){
   imposterCountInput().value = 1;
   wordListInput().value = "apple, castle, astronaut, coffee, concert";
   timerLengthInput().value = 60;
-  fakeWordInput().value = "????";
+  fakeWordInput().value = "Imposter";
   generatePlayerPreview();
 }
 
@@ -164,7 +164,7 @@ function startGame(){
   const playerCount = Math.max(3, parseInt(playerCountInput().value || 3));
   const imposterCount = Math.max(1, parseInt(imposterCountInput().value || 1));
   const rawWords = wordListInput().value || "";
-  const fakeWord = (fakeWordInput().value || "????");
+  const fakeWord = (fakeWordInput().value || "Imposter");
   const words = rawWords.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean);
   const chosenWord = words.length ? words[Math.floor(Math.random()*words.length)] : "WORD";
 
